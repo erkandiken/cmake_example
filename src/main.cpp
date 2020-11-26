@@ -1,6 +1,7 @@
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 #include "example_1.h"
+#include "example_2.h"
 
 #define STRINGIFY(x) #x
 #define MACRO_STRINGIFY(x) STRINGIFY(x)
@@ -20,8 +21,13 @@ PYBIND11_MODULE(cpp_examples, m) {
         modify
     )pbdoc";
 
-    m.def("modify", &modify, R"pbdoc(
+    m.def("modify_list", &modify_list, R"pbdoc(
         Multiply all entries of a list by 2.0
+        
+    )pbdoc");
+
+    m.def("modify_nested_list", &modify_nested_list, R"pbdoc(
+        Multiply all entries of a nested list by 2.0
         
     )pbdoc");
 
