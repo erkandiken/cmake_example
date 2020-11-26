@@ -113,13 +113,13 @@ class CMakeBuild(build_ext):
 
 
 setup(
-    name="cmake_example",
+    name="cppmodules",
     version="0.0.1",
-    author="Dean Moldovan",
-    author_email="dean0x7d@gmail.com",
-    description="A test project using pybind11 and CMake",
+    author="Erkan Diken",
+    author_email="erkandikend@gmail.com",
+    description="A project includes examples using pybind11 and CMake",
     long_description="",
-    ext_modules=[CMakeExtension("cmake_example")],
+    ext_modules=[CMakeExtension("cppmodules")],
     cmdclass={"build_ext": CMakeBuild},
     zip_safe=False,
 )

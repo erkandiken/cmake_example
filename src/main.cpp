@@ -1,4 +1,6 @@
 #include <pybind11/pybind11.h>
+#include <pybind11/stl.h>
+#include "example_1.h"
 
 #define STRINGIFY(x) #x
 #define MACRO_STRINGIFY(x) STRINGIFY(x)
@@ -9,7 +11,7 @@ int add(int i, int j) {
 
 namespace py = pybind11;
 
-PYBIND11_MODULE(cmake_example, m) {
+PYBIND11_MODULE(cpp_examples, m) {
     m.doc() = R"pbdoc(
         Pybind11 example plugin
         -----------------------
@@ -33,6 +35,12 @@ PYBIND11_MODULE(cmake_example, m) {
         Subtract two numbers
 
         Some other explanation about the subtract function.
+    )pbdoc");
+
+    m.def("modify", &modify, "Multiply all entries of a list by 2.0");
+    m.def("multiplyWithScalar", &multiplyWithScalar, R"pbdoc(
+        Multiply all entries of a list by 2.0
+        
     )pbdoc");
 
 #ifdef VERSION_INFO
