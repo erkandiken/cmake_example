@@ -1,8 +1,10 @@
 import cpp_examples as m
 
-print(m.__version__)
 A = [1., 2., 3., 4.]
-B = m.modify(A)
-C = m.multiplyWithScalar(A)
-print(B)
-print(C)
+result = m.modify(A)
+expected_result = [2., 4., 6., 10.]
+
+try:
+    assert result == expected_result, "assertion error"
+except AssertionError as err:
+    print(err)
