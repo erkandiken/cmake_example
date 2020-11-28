@@ -4,6 +4,10 @@ project(cppmodules)
 # required for example 7, 8
 set(CMAKE_CXX_STANDARD 14) 
 
+# required to set this after upgrading to macos11, 
+# otherwise wheel build is failed
+set(CMAKE_OSX_DEPLOYMENT_TARGET "10.9")
+
 include_directories(includes)
 file(GLOB_RECURSE SOURCES RELATIVE ${CMAKE_SOURCE_DIR} "src/*.cpp")
 
