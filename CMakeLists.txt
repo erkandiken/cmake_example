@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.4...3.19)
 project(cppmodules)
 
+# required for example 7, 8
+set(CMAKE_CXX_STANDARD 14) 
+
 include_directories(includes)
 file(GLOB_RECURSE SOURCES RELATIVE ${CMAKE_SOURCE_DIR} "src/*.cpp")
 
@@ -8,7 +11,7 @@ file(GLOB_RECURSE SOURCES RELATIVE ${CMAKE_SOURCE_DIR} "src/*.cpp")
 add_subdirectory(pybind11)
 pybind11_add_module(cpp_examples ${SOURCES})
 
-# TODO: this is only required for soem examples, not for all!
+# only required for some examples which uses eigen
 find_package( PkgConfig )
 pkg_check_modules( EIGEN3 REQUIRED eigen3 )
 include_directories( ${EIGEN3_INCLUDE_DIRS} )

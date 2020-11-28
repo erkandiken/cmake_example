@@ -6,6 +6,8 @@
 #include "example_4.h"
 #include "example_5.h"
 #include "example_6.h"
+#include "example_7.h"
+#include "example_8.h"
 
 #define STRINGIFY(x) #x
 #define MACRO_STRINGIFY(x) STRINGIFY(x)
@@ -61,6 +63,14 @@ PYBIND11_MODULE(cpp_examples, m) {
         }
     );
 
+    // overloaded functions 
+    m.def("mul", py::overload_cast<int   ,int   >(&mul) );
+    m.def("mul", py::overload_cast<double,double>(&mul) );
+
+    //TODO: check this !
+    // N.B. the order here is crucial, in the reversed order every "int" is converted to a "double"
+    m.def("mul", py::overload_cast<const Eigen::MatrixXi &,int   >(&mul) );
+    m.def("mul", py::overload_cast<const Eigen::MatrixXd &,double>(&mul) );
 
 #ifdef VERSION_INFO
     m.attr("__version__") = MACRO_STRINGIFY(VERSION_INFO);
