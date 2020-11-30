@@ -13,6 +13,8 @@
 #include "example_9_matrix.h"
 #include "pybind_matrix.h"
 
+//#include "example_10.h"
+//#include "example_11.h"
 
 #define STRINGIFY(x) #x
 #define MACRO_STRINGIFY(x) STRINGIFY(x)
@@ -77,7 +79,31 @@ PYBIND11_MODULE(cpp_examples, m) {
     m.def("mul", py::overload_cast<const Eigen::MatrixXi &,int   >(&mul) );
     m.def("mul", py::overload_cast<const Eigen::MatrixXd &,double>(&mul) );
 
+    //example 9
     m.def("matrixMul", &matrixMul);
+
+    //example 10
+    // py::module sm = m.def_submodule("Type", "Type enumerator");
+
+    // py::enum_<Type::Value>(sm, "Type")
+    //     .value("Cat", Type::Cat)
+    //     .value("Dog", Type::Dog)
+    //     .export_values();
+    
+    // m.def("whichAnimal", &whichAnimal, py::arg("animal"));
+
+    //example 11
+    // py::class_<Animal, PyAnimal>(m, "Animal")
+    //     .def(py::init<>())
+    //     .def("talk", &Animal::talk);
+
+    // py::class_<Dog, Animal>(m, "Dog")
+    //     .def(py::init<>());
+
+    // py::class_<Cat, Animal>(m, "Cat")
+    //     .def(py::init<>());
+
+    // m.def("talk", &talk, py::arg("animal") ,py::arg("n_times")=1);
 
 #ifdef VERSION_INFO
     m.attr("__version__") = MACRO_STRINGIFY(VERSION_INFO);
