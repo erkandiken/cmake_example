@@ -9,6 +9,11 @@
 #include "example_7.h"
 #include "example_8.h"
 
+//example 9
+#include "example_9_matrix.h"
+#include "pybind_matrix.h"
+
+
 #define STRINGIFY(x) #x
 #define MACRO_STRINGIFY(x) STRINGIFY(x)
 
@@ -71,6 +76,8 @@ PYBIND11_MODULE(cpp_examples, m) {
     // N.B. the order here is crucial, in the reversed order every "int" is converted to a "double"
     m.def("mul", py::overload_cast<const Eigen::MatrixXi &,int   >(&mul) );
     m.def("mul", py::overload_cast<const Eigen::MatrixXd &,double>(&mul) );
+
+    m.def("matrixMul", &matrixMul);
 
 #ifdef VERSION_INFO
     m.attr("__version__") = MACRO_STRINGIFY(VERSION_INFO);
