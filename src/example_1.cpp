@@ -16,6 +16,9 @@ std::vector<double> multiplyByTwo(const std::vector<double>& input){
     return output;
 }
 
+/*
+This function can accept a python list and an integer as parameters
+*/
 std::vector<double> multiplyByFactor(const std::vector<double>& input, int factor){
     std::vector<double> output;
     std::transform(

@@ -2,9 +2,9 @@
 #include <pybind11/numpy.h>
 #include <vector>
 
-std::vector<int> multiply(const std::vector<double>& input){
+std::vector<int> multiplyArrayByTen(const std::vector<double>& input){
     std::vector<int> output(input.size());
-    for(size_t i = 0; i < input.size(); i++){
+    for (size_t i = 0; i < input.size(); i++){
         output[i] = 10 * static_cast<int>(input[i]);
     }
     return output;
@@ -21,7 +21,7 @@ py::array_t<int> py_multiply(py::array_t<double, py::array::c_style | py::array:
     std::memcpy(array_vec.data(), array.data(), array.size() * sizeof(double));
 
     // call pure C++ function
-    std::vector<int> result_vec = multiply(array_vec);
+    std::vector<int> result_vec = multiplyArrayByTen(array_vec);
 
     // allocate py::array (to pass the result of the C++ function to Python)
     auto result = py::array_t<int>(array.size());

@@ -1,12 +1,9 @@
 #include <vector>
 
-
 /*
-Multiplies all entries of input array of arrays by 2.0
-input: const nested vector (in python nested list can be given as in input)
-output: nested vector 
+This function can accept a python list of list as a parameter
 */
-std::vector<std::vector<double>> modify_nested_list(const std::vector<std::vector<double>>& input){
+std::vector<std::vector<double>> multiplyNestedVectorByTwo(const std::vector<std::vector<double>>& input){
     std::vector<std::vector<double>> output;
     std::transform(
         input.begin(),

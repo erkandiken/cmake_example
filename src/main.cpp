@@ -47,19 +47,22 @@ PYBIND11_MODULE(cpp_examples, m) {
         
     )pbdoc");
 
-    m.def("modify_nested_list", &modify_nested_list, R"pbdoc(
+    //example 2
+    m.def("multiplyNestedVectorByTwo", &multiplyNestedVectorByTwo, R"pbdoc(
         
         Multiply all entries of a nested list by 2.0
         
     )pbdoc");
 
-    m.def("multiply", &py_multiply, R"pbdoc(
+    //example 3
+    m.def("multiplyArrayByTen", &py_multiply, R"pbdoc(
         
         "Convert all entries of an 1-D NumPy-array to int and multiply by 10"
         
     )pbdoc");
 
-    //TODO: it does not retunr the length!
+    //example 4
+    //TODO: it does not return the length!
     m.def("length", &py_length, "Calculate the length of an array of vectors");
 
     m.def("inv", &inv);
