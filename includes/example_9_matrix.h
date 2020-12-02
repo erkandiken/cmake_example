@@ -1,6 +1,4 @@
-#ifndef MATRIX_H
-#define MATRIX_H
-
+#pragma once
 #include <iostream>
 #include <cstdlib>
 #include <vector>
@@ -113,5 +111,3 @@ class Matrix{
 }; //class Matrix
 
 Matrix<double> matrixMul(const Matrix<double>&, const Matrix<double>&);
-
-#endif

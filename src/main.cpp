@@ -34,9 +34,16 @@ PYBIND11_MODULE(cpp_examples, m) {
         modify
     )pbdoc";
 
-    m.def("modify_list", &modify_list, R"pbdoc(
+    //example 1
+    m.def("multiplyByTwo", &multiplyByTwo, R"pbdoc(
         
         Multiply all entries of a list by 2.0
+        
+    )pbdoc");
+
+     m.def("multiplyByFactor", &multiplyByFactor, R"pbdoc(
+        
+        Multiply all entries of a list by a factor
         
     )pbdoc");
 
