@@ -65,10 +65,11 @@ PYBIND11_MODULE(cpp_examples, m) {
     //TODO: it does not return the length!
     m.def("length", &py_length, "Calculate the length of an array of vectors");
 
+    //example 5
     m.def("inv", &inv);
-
     m.def("det", &det);
 
+    //example 6
     m.def("trans", &trans);
 
     py::class_<CustomVectorXd>(m, "CustomVectorXd")
