@@ -15,7 +15,7 @@ Eigen::VectorXd CustomVectorXd::mul(double factor){
 Eigen::VectorXi trans(const Eigen::VectorXi& array){
     auto N = array.size();
     Eigen::VectorXi out(N);
-    for(auto i=0; i<N; i++)
+    for (auto i=0; i<N; i++)
         out[array.size() - i - 1] = array[i];
     return out;
 }
