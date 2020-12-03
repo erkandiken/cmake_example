@@ -81,11 +81,11 @@ PYBIND11_MODULE(cpp_examples, m) {
         }
     );
 
-    //example 7
-    // overloaded functions 
-    m.def("mul", py::overload_cast<int   ,int   >(&mul) );
-    m.def("mul", py::overload_cast<double,double>(&mul) );
+    //example 7: overloaded functions 
+    m.def("mul", py::overload_cast<int   , int   >(&mul));
+    m.def("mul", py::overload_cast<double, double>(&mul));
 
+    //example 8
     //TODO: check this !
     // N.B. the order here is crucial, in the reversed order every "int" is converted to a "double"
     m.def("mul", py::overload_cast<const Eigen::MatrixXi &,int   >(&mul) );

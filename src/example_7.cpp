@@ -1,5 +1,3 @@
-#include <pybind11/pybind11.h>
-
 double mul(double a, double b){
     return a * b;  
 }
